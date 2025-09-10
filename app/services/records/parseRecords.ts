@@ -11,7 +11,7 @@ import * as fs from "fs";
 function parseRecords(): Record[] {
   const headerQueryRegex = /[A-Z]{2}[\d]{2}[\d]{4}/;
 
-  const file: string = fs.readFileSync('app/assets/hurdat2-1851-2024-040425.txt', 'utf-8');
+  const file: string = fs.readFileSync('app/assets/hurdat2-1851-2024-040425.txt', 'utf-8'); // This regex string fits a format only found with the header line of a cyclone. This allows the data to be easily split up into one record for each cyclone in the HURDAT2 file.
   const lines = file.split('\n')
 
   const records: Record[] = [];
@@ -20,18 +20,18 @@ function parseRecords(): Record[] {
 
   // Parse each line of the file
   lines.forEach((line) => {
-    if (headerQueryRegex.test(line)) { // A new cyclone
+    if (headerQueryRegex.test(line)) { // When the regex test returns true, we have reached a new cyclone in the list
       if (record) records.push(record); // If a previous record exists, add it to the array
 
       const header: Header = { // Substrings determined from the specifications listed in the HURDAT2 Format PDF
-        basin: line.substring(0, 2),
+        basin: line.substring(0, 2), // All substring values are determined using the extensive format description provided alongside the HURDAT2 file, accounting for the fact that strings are zero-indexed and the substring command is non-inclusive on its upper bounds.
         cycloneNumber: Number(line.substring(2, 4)),
         year: Number(line.substring(4, 8)),
         name: line.substring(18, 28).trim(),
         entries: Number(line.substring(33, 36).trim())
       };
 
-      record = {
+      record = { // The new record is created
         header: header,
         data: []
       }
@@ -70,7 +70,7 @@ function parseRecords(): Record[] {
     }
   });
 
-  if (record) records.push(record);
+  if (record) records.push(record); // This line ensures that the last record will be included, as the loop will end after its completion.
 
   return records;
 }
