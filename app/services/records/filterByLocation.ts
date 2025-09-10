@@ -11,7 +11,7 @@ function filterByLocation(records: Record[]): Record[] {
     let isInFlorida = false;
 
     record.data.forEach((d) => {
-      if (isPointInPolygon({ latitude: d.latitude, longitude: d.longitude }, [
+      if (isPointInPolygon({ latitude: d.latitude, longitude: d.longitude }, [ // This library takes a given set of coordinates and determines if it is within an area. The area provided is the bounding coordinates of the state of Florida.
         { latitude: 31.042638, longitude: -79.813569 },
         { latitude: 24.353586, longitude: -79.813569 },
         { latitude: 31.042638, longitude: -87.639377 },

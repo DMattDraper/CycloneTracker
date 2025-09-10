@@ -11,6 +11,13 @@ import styles from "./page.module.css";
 import createTableRecords from "./services/records/createTableRecords";
 
 export default function Home(): JSX.Element {
+  /**
+   * LISTED REQUIREMENTS:
+   * Using a programming language of your choice, build an application to parse the HURDAT2 data,
+   * identify the hurricanes that made landfall in Florida, and output a report listing the name,
+   * date of landfall, and maximum wind speed for each event.
+   */
+
   const records: Record[] = parseRecords() // Original records parsed into usable objects
   const recordsFilteredByYear: Record[] = filterByYear(records, 1900); // Records filtered to only include entries from valid years
   const recordsFilteredBySpeed: Record[] = filterByWindSpeed(recordsFilteredByYear); // Records filtered to only include storms qualifying as hurricanes
@@ -26,7 +33,7 @@ export default function Home(): JSX.Element {
           <p>Each row displays the name of the hurricane, the initial date of landfall, and maximum sustained windspeed, measured in knots</p>
           <p>Landfalls are estimated using the bounding coordinates of Florida, and may include some storms that only passed over the water within this area</p>
         </div>
-        <RecordTable records={tableRecords} />
+        <RecordTable records={tableRecords} /> {/** Display a table with the processed records */}
       </div>
     </div>
   );

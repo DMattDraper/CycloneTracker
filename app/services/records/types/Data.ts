@@ -2,7 +2,7 @@
 import { WindRadii } from "./WindRadii";
 
 /**
- * Represents a single data entry of a Cyclone in the HURDAT2 file
+ * Represents a single data entry of a given Cyclone in the HURDAT2 file
  */
 export interface Data {
   date: string;
