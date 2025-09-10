@@ -1,36 +1,21 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## What is CycloneTracker?
 
-## Getting Started
+CycloneTracker is a simple application meant to display important information about hurricanes.
 
-First, run the development server:
+This one-page site centers around a table that displays a record of every hurricane that has made landfall in the state of Florida since 1900. This is determined using the coordinates provided in each record in the HURDAT2 file, as well as the bounding coordinates of the state. This bounding box includes a large portion of water surrounding Florida, and as the state is irregularly shaped, some entries might not be entirely accurate.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+The first column of the table displays the `Name` of the hurricane. Some entries were recorded before the naming convention came to be, so they are listed as `UNNAMED`
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The second column displays the `Landfall Date`, or when the hurricane made landfall in Florida, using a `yyyy-mm-dd` format.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The third column displays the `Maximum Sustained Windspeed` of the hurricane in `knots (kn)`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## How to run CycloneTracker
 
-## Learn More
+CycloneTracker was built using Node version 22.19.0. For best results, please proceed with this version.
 
-To learn more about Next.js, take a look at the following resources:
+At the root level of this project, run the command `npm install` or `npm i`. This will ensure that all of the required packages are installed.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Building the application may be required before running. To do so, simply run `npm run build`, and wait for the process to finish.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Finally, run the command `npm start`. This should launch the application and open it in your browser, located at localhost:3000
