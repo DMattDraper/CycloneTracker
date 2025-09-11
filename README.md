@@ -12,7 +12,9 @@ The third column displays the `Maximum Sustained Windspeed` of the hurricane in 
 
 ## How to run CycloneTracker
 
-CycloneTracker was built using Node version 22.19.0. For best results, please proceed with this version.
+CycloneTracker was built using Node JS version 22.19.0. For best results, please proceed with this version.
+
+This application can be run locally by dowloading the zipped repository and extracting it or cloning the repository to your computer.
 
 At the root level of this project, run the command `npm install` or `npm i`. This will ensure that all of the required packages are installed.
 
