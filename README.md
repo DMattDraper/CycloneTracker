@@ -18,6 +18,6 @@ This application can be run locally by dowloading the zipped repository and extr
 
 At the root level of this project, run the command `npm install` or `npm i`. This will ensure that all of the required packages are installed.
 
-Building the application may be required before running. To do so, simply run `npm run build`, and wait for the process to finish.
+Building the application will be required before running. To do so, simply run `npm run build`, and wait for the process to finish.
 
 Finally, run the command `npm start`. This should launch the application and open it in your browser, located at localhost:3000
